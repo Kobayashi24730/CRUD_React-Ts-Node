@@ -15,7 +15,7 @@
 
     "strict": true,
     "outDir": "./dist",
-    "rootDir": "src",
+    "rootDir": "./src",
     "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "skipLibCheck": true,
