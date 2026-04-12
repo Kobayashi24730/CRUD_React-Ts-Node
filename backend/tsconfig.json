@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#/*": ["src/*"]
+    },
+    "ignoreDeprecations": "6.0",
+
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "target": "ES2022",
+
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "src",
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+  }
+}

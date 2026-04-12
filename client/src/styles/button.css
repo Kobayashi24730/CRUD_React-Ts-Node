@@ -1,0 +1,188 @@
+/* ===== Button & Form Styles ===== */
+
+.button-panel {
+  position: relative;
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid #106ebe;
+  border-radius: 0.75rem;
+  padding: 0.95rem 1.7rem;
+  background: linear-gradient(180deg, #0f7ad8 0%, #0078d4 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  box-shadow:
+    0 8px 20px rgba(0, 120, 212, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #106ebe 0%, #005a9e 100%);
+  box-shadow:
+    0 12px 24px rgba(0, 120, 212, 0.22);
+}
+
+.button-primary:active {
+  transform: translateY(0);
+}
+
+.button-primary-icon {
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.form-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+.form {
+  width: min(460px, 100%);
+  padding: 1.5rem;
+  border: 1px solid #dbe5f1;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+  animation: slideUpModal 0.35s ease;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5edf5;
+}
+
+.form-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.form-fields {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.button-close {
+  border: 0;
+  border-radius: 999px;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: #f3f7fb;
+  color: #4b5563;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+}
+
+.button-close:hover {
+  transform: scale(1.06);
+  background-color: #e8f3fc;
+  color: #0078d4;
+}
+
+.button-close:active {
+  transform: scale(0.96);
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"] {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #cfdceb;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 0.98rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.form input[type="text"]::placeholder,
+.form input[type="password"]::placeholder,
+.form input[type="email"]::placeholder {
+  color: #7b8794;
+}
+
+.form input[type="text"]:hover,
+.form input[type="password"]:hover,
+.form input[type="email"]:hover {
+  border-color: #9fbfe5;
+  background-color: #fbfdff;
+}
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus,
+.form input[type="email"]:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 0 4px rgba(0, 120, 212, 0.12);
+  transform: translateY(-1px);
+}
+
+@keyframes slideUpModal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .button-primary {
+    width: 100%;
+  }
+
+  .form {
+    padding: 1.1rem;
+  }
+
+  .form-title {
+    font-size: 1.15rem;
+  }
+
+  .form input[type="text"],
+  .form input[type="password"],
+  .form input[type="email"] {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-primary {
+    padding: 0.92rem 1.15rem;
+    font-size: 0.94rem;
+  }
+
+  .form {
+    padding: 1rem;
+    border-radius: 0.9rem;
+  }
+
+  .form-header {
+    gap: 0.75rem;
+  }
+}
