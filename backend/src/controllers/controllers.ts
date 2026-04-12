@@ -1,5 +1,5 @@
-import { user } from "#/database/schema";
-import { db } from "#/database/index";
+import { user } from "../database/schema";
+import { db } from "../database/index";
 import type { Request, Response } from "express";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcrypt";
