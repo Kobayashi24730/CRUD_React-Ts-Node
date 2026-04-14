@@ -101,7 +101,7 @@ export const editUser = async ( req: Request, res: Response ) => {
 
 export const delUser = async ( req: Request, res: Response ) => {
     try {
-        const { id } = req.body;
+        const id = Number(req.params.id);
         if ( id == null ){
             return res.status(400).json({ message: "ID é obrigatório" });
         }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "@/styles/button.css";
 import "@/types/typesCrud";
+import { useAddHook } from "@/hooks";
 
 interface User {
     nome: string;
@@ -9,7 +10,7 @@ interface User {
     cargo: string;
 }
 export default function Button() {
-    const { mutate } = ;
+    const { mutate } = useAddHook();
     const [toglebutton, setToggleButton] = useState(false);
     const [InfosUser, setInfosUser] = useState<User>({
         nome: "",
@@ -22,7 +23,19 @@ export default function Button() {
         if(InfosUser.nome == null || InfosUser.email == null || InfosUser.senha == null || InfosUser.cargo == null) {
             alert("Preencha todos os campos para adicionar um user");
         }
-        mutate({},{});
+        mutate({
+            nome: InfosUser.nome,
+            email: InfosUser.email,
+            senha: InfosUser.senha,
+            cargo: InfosUser.cargo
+        },{
+            onSuccess: () => {
+                alert("User adicionado com sucesso!");
+            },
+            onError: () => {
+                alert("Erro ao adicionar o user. Verifique os dados e tente novamente.");
+            }
+        });
     }
     return (
         <div className="button-panel">
@@ -74,6 +87,16 @@ export default function Button() {
                                 value={InfosUser.cargo}
                                 onChange={(e) => setInfosUser({ ...InfosUser, cargo: e.target.value })}
                             />
+
+                            <div>
+                                <button
+                                    type="button"
+                                    className="button-close"
+                                    onClick={() => onSubmitInfos()}
+                                >
+                                    Enviar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
