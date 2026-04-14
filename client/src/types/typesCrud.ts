@@ -15,7 +15,7 @@ export type EditUserType = {
     id: number;
     nome: string;
     email: string;
-    senha: string;
+    senha?: string;
     novaSenha?: string;
     cargo: string;
 }

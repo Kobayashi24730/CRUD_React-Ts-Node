@@ -49,8 +49,8 @@ export default function Tabela() {
                 </article>
             ))}
 
-            {tipo == "edit" && editdata && <Card variant="edit" data={editdata} /> }
-            {tipo == "del" && delData && <Card variant="del" data={delData} /> }
+            {tipo == "edit" && editdata && <Card key={editdata.id} variant="edit" data={editdata} /> }
+            {tipo == "del" && delData && <Card key={delData.id} variant="del" data={delData} /> }
         </section>
     );
 }

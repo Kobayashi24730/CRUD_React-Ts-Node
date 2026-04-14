@@ -10,7 +10,6 @@ export const getUsers = async ( req: Request, res: Response ) => {
             id: user.id,
             nome: user.nome,
             email: user.email,
-            senha: user.senha,
             cargo: user.cargo
         }).from(user);
         return res.status(200).json({
@@ -61,7 +60,7 @@ export const editUser = async ( req: Request, res: Response ) => {
         const id = Number(req.params.id);
         const { nome, email, senha, novaSenha, cargo} = req.body;
 
-        if ( id == null || nome == null || email == null || cargo == null ) {
+        if ( !nome || !email || !cargo ) {
             return res.status(400).json({ message: "Todos os campos são obrigatórios" });
         }
         const userExist = await db.select().from(user).where(eq(user.id, id)).then(res => res[0]);
@@ -70,7 +69,10 @@ export const editUser = async ( req: Request, res: Response ) => {
         }
 
         let senhaFinal = userExist.senha;
-        if(senha && novaSenha) {
+        if(novaSenha) {
+            if (!senha){
+                return res.status(400).json({ message: "Senha atual é obrigatório" });
+            }
             const validSenha = await bcrypt.compare(senha, userExist.senha);
             if(!validSenha){
                 return res.status(400).json({ message: "Senha invalida" });
