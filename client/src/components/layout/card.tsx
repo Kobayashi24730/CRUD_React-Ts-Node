@@ -46,7 +46,12 @@ export default function Card( { variant, data } : Props ) {
             ...(dataNova.novaSenha && {novaSenha: dataNova.novaSenha}),
         },
         {
-
+            onSuccess: () => {
+                alert("User editado com sucesso!");
+            },
+            onError: () => {
+                alert("Erro ao editar o user. Verifique os dados e tente novamente.");
+            }
         });
     }
     return (

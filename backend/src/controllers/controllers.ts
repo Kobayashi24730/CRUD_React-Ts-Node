@@ -58,7 +58,8 @@ export const Adduser = async ( req: Request, res: Response ) => {
 
 export const editUser = async ( req: Request, res: Response ) => {
     try {
-        const { id, nome, email, senhaAtual, novaSenha, cargo} = req.body;
+        const id = Number(req.params.id);
+        const { nome, email, senhaAtual, novaSenha, cargo} = req.body;
 
         if ( id == null || nome == null || email == null || cargo == null ) {
             return res.status(400).json({ message: "Todos os campos são obrigatórios" });
