@@ -59,7 +59,7 @@ export const Adduser = async ( req: Request, res: Response ) => {
 export const editUser = async ( req: Request, res: Response ) => {
     try {
         const id = Number(req.params.id);
-        const { nome, email, senhaAtual, novaSenha, cargo} = req.body;
+        const { nome, email, senha, novaSenha, cargo} = req.body;
 
         if ( id == null || nome == null || email == null || cargo == null ) {
             return res.status(400).json({ message: "Todos os campos são obrigatórios" });
@@ -70,8 +70,8 @@ export const editUser = async ( req: Request, res: Response ) => {
         }
 
         let senhaFinal = userExist.senha;
-        if(senhaAtual && novaSenha) {
-            const validSenha = await bcrypt.compare(senhaAtual, userExist.senha);
+        if(senha && novaSenha) {
+            const validSenha = await bcrypt.compare(senha, userExist.senha);
             if(!validSenha){
                 return res.status(400).json({ message: "Senha invalida" });
             }
