@@ -1,0 +1,164 @@
+.card-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.26);
+  backdrop-filter: blur(6px);
+}
+
+.card-del {
+  position: relative;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(520px, 100%);
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 90, 158, 0.14);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 250, 253, 0.98) 100%);
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.18),
+    0 8px 20px rgba(0, 120, 212, 0.08);
+  backdrop-filter: blur(18px);
+  animation: cardEnter 0.28s ease;
+}
+
+.card-del > button:first-child {
+  align-self: flex-end;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #f3f6fb;
+  color: #475467;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card-del > button:first-child:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 120, 212, 0.18);
+  background: #e8f3fc;
+  color: #005a9e;
+}
+
+.card-del h2 {
+  margin: 0;
+  color: #1b1b1b;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.card-del > div {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card-del > div > div {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d7e3f0;
+  border-radius: 1rem;
+  background: #f8fbff;
+}
+
+.card-del small {
+  color: #005a9e;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.card-del input[type="text"],
+.card-del input[type="password"],
+.card-del input[type="email"] {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #c7d5e6;
+  border-radius: 0.9rem;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 0.97rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.card-del input::placeholder {
+  color: #667085;
+}
+
+.card-del input:hover {
+  border-color: #9ec5eb;
+  background: #fbfdff;
+}
+
+.card-del input:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.16);
+}
+
+.button-del {
+  align-self: flex-start;
+  min-width: 140px;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid #0f6cbd;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0f7ad8 0%, #0078d4 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 120, 212, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.button-del:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 120, 212, 0.22);
+  filter: brightness(0.98);
+}
+
+.button-del:active {
+  transform: translateY(0);
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-del {
+    width: min(100%, 100%);
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .card-del h2 {
+    font-size: 1.25rem;
+  }
+
+  .button-del {
+    width: 100%;
+  }
+}

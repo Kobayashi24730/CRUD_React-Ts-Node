@@ -2,18 +2,23 @@
 
 .navbar-shell {
   width: 100%;
-  padding: 0 0 1.35rem;
+  padding: 0 0 1.5rem;
   animation: slideDown 0.4s ease;
 }
 
 .navbar-container {
   width: min(860px, 100%);
   margin: 0 auto;
-  padding: 0;
+  padding: 1rem 1.15rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  border: 1px solid var(--ms-border);
+  border-radius: 1.4rem;
+  background: var(--ms-surface);
+  box-shadow: var(--ms-shadow-soft);
+  backdrop-filter: blur(16px);
 }
 
 .navbar-container:hover {
@@ -25,14 +30,14 @@
   margin: 0;
   font-size: clamp(2.2rem, 5vw, 3.15rem);
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
   color: #0f172a;
   line-height: 1;
   transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .navbar-title:hover {
-  color: #005a9e;
+  color: var(--ms-blue-strong);
   transform: translateY(-1px);
 }
 
@@ -44,6 +49,7 @@
   .navbar-container {
     align-items: flex-start;
     flex-direction: column;
+    border-radius: 1.1rem;
   }
 }
 

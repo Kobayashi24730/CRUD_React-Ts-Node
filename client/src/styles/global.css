@@ -5,8 +5,19 @@
 :root {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: #1f1f1f;
-  background:
-    linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  background: #f5f9fd;
+  color-scheme: light;
+  --ms-blue-strong: #0f6cbd;
+  --ms-blue: #0078d4;
+  --ms-blue-soft: #deecf9;
+  --ms-surface: rgba(255, 255, 255, 0.88);
+  --ms-surface-solid: #ffffff;
+  --ms-border: #d0dceb;
+  --ms-border-strong: #b7c9de;
+  --ms-text: #1b1b1b;
+  --ms-text-soft: #5e6c84;
+  --ms-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  --ms-shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.05);
 }
 
 * {
@@ -23,8 +34,22 @@ body,
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(0, 120, 212, 0.07), transparent 22%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    radial-gradient(circle at top left, rgba(0, 120, 212, 0.12), transparent 24%),
+    radial-gradient(circle at top right, rgba(80, 160, 255, 0.08), transparent 22%),
+    linear-gradient(180deg, #f7fbff 0%, #eef4f9 100%);
+  color: var(--ms-text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.45) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), transparent 70%);
 }
 
 button,
@@ -32,7 +57,11 @@ input {
   font: inherit;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .home-page {
   min-height: 100vh;
-  padding: 1.75rem 1.25rem 3rem;
+  padding: 2rem 1.25rem 3rem;
 }
